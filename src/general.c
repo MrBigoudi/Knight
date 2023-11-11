@@ -1,4 +1,6 @@
 #include "Tableaux.h"
+#include <stdio.h>
+#include <stdlib.h>
 
 //gestion d'une nouvelle partie et du chargement d'une ancienne partie
 void nouvellePartie (SDL_Rect *positionKnight, int *pt_nbVies, int *pt_nbTableau, int *pt_avecAxe, int *pt_nvPartie)
@@ -46,7 +48,7 @@ void nouvellePartie (SDL_Rect *positionKnight, int *pt_nbVies, int *pt_nbTableau
 
             break;
 
-          //cas ou le boutton C est enfoncé
+          //cas ou le boutton C est enfoncï¿½
           case SDLK_c:
 
             //on ouvre le fichier en mode lecture seule
@@ -58,12 +60,12 @@ void nouvellePartie (SDL_Rect *positionKnight, int *pt_nbVies, int *pt_nbTableau
               //on se place au debut du fichier
               rewind (fichier);
 
-              //on transforme les elements du fichier en entiers avec strtol et on les affectes aux variables souhaités
-              positionKnight->x = strtol (fgets (chaine, 10000, fichier) , NULL, 10);
-              positionKnight->y = strtol (fgets (chaine, 10000, fichier) , NULL, 10);
-              *pt_nbVies = strtol (fgets (chaine, 10000, fichier) , NULL, 10);
-              *pt_nbTableau = strtol (fgets (chaine, 10000, fichier) , NULL, 10);
-              *pt_avecAxe = strtol (fgets (chaine, 10000, fichier) , NULL, 10);
+              //on transforme les elements du fichier en entiers avec strtol et on les affectes aux variables souhaitï¿½s
+              positionKnight->x = strtol (fgets (chaine, 100, fichier) , NULL, 10);
+              positionKnight->y = strtol (fgets (chaine, 100, fichier) , NULL, 10);
+              *pt_nbVies = strtol (fgets (chaine, 100, fichier) , NULL, 10);
+              *pt_nbTableau = strtol (fgets (chaine, 100, fichier) , NULL, 10);
+              *pt_avecAxe = strtol (fgets (chaine, 100, fichier) , NULL, 10);
 
               fclose (fichier);
               }
@@ -1114,7 +1116,7 @@ void histoire (SDL_Surface *ecran, TTF_Font *police)
     //on lit la lettre suivante
     carActuel = fgetc (fichier);
 
-    }while (carActuel != '\n');//tant que l'on est pas arrivé en fin de ligne
+    }while (carActuel != '\n');//tant que l'on est pas arrivï¿½ en fin de ligne
 
   //on laisse le texte et l'image pendant un certain temps
   pause (2000);

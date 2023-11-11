@@ -1,6 +1,8 @@
 #ifndef OBSTACLES3
 #define OBSTACLES3
 
+#include <SDL/SDL_video.h>
+
 int surPlat1Tab3 (SDL_Rect *positionKnight);
 int surPlat2Tab3 (SDL_Rect *positionKnight);
 int surPlat3Tab3 (SDL_Rect *positionKnight);

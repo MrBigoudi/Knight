@@ -10,10 +10,10 @@ int main (int argc, char *argv[])
   SDL_Surface *coeur = NULL;
   SDL_Surface *axe = NULL;
 
-  //initialisation du gestionnaire d'évènements
+  //initialisation du gestionnaire d'ï¿½vï¿½nements
   SDL_Event event;
 
-  //initialisation de la police d'écriture
+  //initialisation de la police d'ï¿½criture
   TTF_Font *police = NULL;
 
   //initialisation des variables utilisees pour savoir quelles images afficher
@@ -28,7 +28,7 @@ int main (int argc, char *argv[])
   int nvPartie = 0;
   int nbVies = NB_VIES;
 
-  //initialisation des positions des premières images
+  //initialisation des positions des premiï¿½res images
   SDL_Rect positionKnight;
   SDL_Rect positionImageDeFond;
   SDL_Rect positionEcranTitre;
@@ -50,20 +50,25 @@ int main (int argc, char *argv[])
   //initialisation de la gestion du texte
   TTF_Init();
 
-  //création d'une icone
+  //crï¿½ation d'une icone
   SDL_WM_SetIcon(SDL_LoadBMP("Knight.bmp"), NULL);
 
   //initialisation de l'ecran avec les differents flags
-  ecran = SDL_SetVideoMode (WIDTH, HEIGHT, 32, SDL_HWSURFACE|SDL_DOUBLEBUF|SDL_FULLSCREEN);
+  ecran = SDL_SetVideoMode (WIDTH, HEIGHT, 32, SDL_HWSURFACE|SDL_DOUBLEBUF);
 
   //titre de la fenetre
   SDL_WM_SetCaption ("Knight", NULL);
 
-  //chargement des premières images et de la police d'ecriture
+  //chargement des premiï¿½res images et de la police d'ecriture
   police = TTF_OpenFont ("times.ttf", 40);
   knight = SDL_LoadBMP ("KnightProfil.bmp");
   imageDeFond = SDL_LoadBMP ("Tableau1.bmp");
   ecranTitre = SDL_LoadBMP ("EcranTitre1.bmp");
+  if (ecranTitre == NULL) {
+    fprintf(stderr, "Unable to load image: %s\n", SDL_GetError());
+    // Handle the error appropriately
+    return 1;
+}
 
   //met l'ecran de fond noir
   SDL_FillRect (ecran, NULL, SDL_MapRGB (ecran->format, 0, 0, 0));
@@ -85,13 +90,14 @@ int main (int argc, char *argv[])
   transition (ecran);
 
   //affiche l'histoire si le joueur veut faire une nouvelle partie
-  if (nvPartie)
+  if (nvPartie){
     histoire (ecran, police);
+  }
 
   //rend transparent le fond vert de l'image du chevalier
   SDL_SetColorKey (knight, SDL_SRCCOLORKEY, SDL_MapRGB (knight->format, 0, 255, 0));
 
-  //permet de laisser une touche enfoncée
+  //permet de laisser une touche enfoncï¿½e
   SDL_EnableKeyRepeat (10, 10);
 
   //boucle principale du programme
@@ -173,7 +179,7 @@ int main (int argc, char *argv[])
           break;
         }
 
-      //détermine le nombre de coeurs a afficher a l'ecran
+      //dï¿½termine le nombre de coeurs a afficher a l'ecran
       majCoeurs (&nbVies, &coeur);
 
       //on verifie que le personnage n'est pas mort

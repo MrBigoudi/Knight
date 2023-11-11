@@ -1,6 +1,9 @@
 #ifndef GENERAL
 #define GENERAL
 
+#include <SDL/SDL_ttf.h>
+#include <SDL/SDL_video.h>
+
 void nouvellePartie (SDL_Rect *positionKnight, int *pt_nbVies, int *pt_nbTableau, int *pt_avecAxe, int *pt_nvPartie);
 void transition (SDL_Surface *ecran);
 void tourne (SDL_Surface *ecran, SDL_Surface *imageDeFond, SDL_Rect positionImageDeFond, SDL_Surface **knight, SDL_Rect *positionKnight, SDL_Surface *coeur, SDL_Rect *positionCoeur);

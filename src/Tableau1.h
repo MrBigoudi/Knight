@@ -4,8 +4,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <SDL/SDL.h>
-#include <SDL_ttf.h>
-#include <FmodEx/fmod.h>
+#include <SDL/SDL_ttf.h>
 #include <time.h>
 #include "constantesGenerales.h"
 #include "general.h"
